@@ -1,0 +1,17 @@
+.mypage-block
+  .mypage-block-header
+    = title
+  .mypage-block-tabs
+    = link_to selling_users_path, class: "mypage-block-tabs__tab #{ 'active-tab' if active == 1 }" do
+      出品中
+    = link_to selling_progress_users_path, class: "mypage-block-tabs__tab #{ 'active-tab' if active == 2 }" do
+      取引中
+    = link_to sold_users_path, class: "mypage-block-tabs__tab #{ 'active-tab' if active == 3 }" do
+      売却済み
+  .mypage-block-data-list
+    -if @items.length != 0
+      = render partial: "users/item", collection: @items, locals:{subscript: subscript},  as: "item"
+    -else
+      .mypage-block-data-list__data-none
+        .text
+          商品がありません。

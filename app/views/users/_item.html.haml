@@ -1,0 +1,10 @@
+= link_to "" do
+  .mypage-block-data-list__data
+    .item-data
+      = image_tag item.item_images[0].image.url, class: "item-data__image"
+      .item-data__detail
+        「
+        = item.name
+        」
+        = subscript
+      = image_tag "icon-arrow.png", class:"item-data__arrow"
